@@ -15,6 +15,7 @@ const Tag = t.object().label('Tag').keys({
 const Pet = t.object().label('Pet').keys({
    id: t.number().optional(),
    name: t.string().required(),
+   name_forbidden: t.string().forbidden(),
    category: Category,
    tags: t.array().items(Tag),
    photoUrls: t.array().items(t.string()).required(),

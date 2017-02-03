@@ -103,6 +103,11 @@ function paramsTableBody (schema) {
 
 function traversingSchema (schema, key) {
   const result = [];
+
+  let flags = schema._flags || {}
+  if(flags && flags.presence === 'forbidden')
+    return result
+
   key && result.push(paramsRow(schema, key));
   if (schema.isJoi) {
     if (schema._type === 'object') {
